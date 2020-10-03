@@ -19,12 +19,11 @@ export class UsersService {
     return this.http.get<Array<IUser>>(requestUrl).pipe(
       map((users: IUser[]) => {
         const userTransformed = users.map((user: IUser) => {
-          const { login, avatar_url, repos_url, type } = user;
+          const { login, avatar_url, type } = user;
           const transformed = {
             userName: login,
             avatar_Url: avatar_url,
             type: type,
-            repos_Url: repos_url,
           };
           return transformed;
         });
@@ -38,8 +37,8 @@ export class UsersService {
     return this.http.get<IUser>(requestUrl);
   }
 
-  getUserRepos(userName: string): Observable<any> {
-    const requestUrl = this.apiUrl + `/${userName}/repos`;
+  getUserRepos(userName): Observable<any> {
+    const requestUrl = this.apiUrl+`/${userName}/repos`;
     return this.http.get<any>(requestUrl);
   }
 }

@@ -1,0 +1,62 @@
+@import "../../../assets/palette.scss";
+
+.cover {
+  height: 100%;
+  width: 100%;
+  img {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+  .search {
+    position: relative;
+    top: 500px;
+    right: 50px;
+    margin: 0 auto;
+    width: 200px;
+    form {
+      width: 370px;
+      height: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      input {
+        width: 250px;
+        height: 30px;
+        border: none;
+        border-radius: 4px;
+        &:focus {
+          outline: none;
+        }
+      }
+      button {
+        height: 35px;
+        width: 100px;
+        font-size: 16px;
+        background-color: $purple;
+        color: $white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+
+  .scroll {
+    position: relative;
+    top: 600px;
+    width: 60px;
+    margin: 0 auto;
+    .mat-icon {
+      color: $white;
+      font-size: 60px;
+      &:hover {
+        color: $purple;
+        cursor: pointer;
+      }
+    }
+  }
+}

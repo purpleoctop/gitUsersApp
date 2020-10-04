@@ -1,0 +1,21 @@
+<div class="cover">
+  <img src="../../../assets/images/githead.jpg" />
+  <div class="search">
+    <form
+      [formGroup]="searchForm"
+      (ngSubmit)="search(searchForm.value.userName)"
+    >
+      <input
+        type="text"
+        formControlName="userName"
+        placeholder="search Github user here"
+      />
+      <button type="submit">search</button>
+    </form>
+  </div>
+  <div class="scroll">
+    <mat-icon (click)="scroll(target)">arrow_circle_down </mat-icon>
+  </div>
+</div>
+
+<div #target ><app-users-list [users]="users"></app-users-list></div>

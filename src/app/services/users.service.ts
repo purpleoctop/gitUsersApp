@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IUser, IUserResponse, } from '../models/IUser';
+import { IUser, IUserResponse } from '../models/IUser';
 import { map } from 'rxjs/operators';
-
+import { IUserDetails } from '../models/IUserDetails';
 
 @Injectable({
   providedIn: 'root',
@@ -32,11 +32,11 @@ export class UsersService {
 
   getUser(userName: string) {
     const requestUrl = this.apiUrl + `/${userName}`;
-    return this.http.get<IUser>(requestUrl);
+    return this.http.get<IUserDetails>(requestUrl);
   }
 
   getUserRepos(userName): Observable<any> {
-    const requestUrl = this.apiUrl+`/${userName}/repos`;
+    const requestUrl = this.apiUrl + `/${userName}/repos`;
     return this.http.get<any>(requestUrl);
   }
 }

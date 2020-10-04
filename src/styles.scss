@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+h1,
+h2,
+h3 {
+  margin: 10px 0px;
+}
+
+h5,
+p {
+  margin: 5px 0px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

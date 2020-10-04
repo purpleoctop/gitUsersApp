@@ -1,16 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UserComponent } from './components/user/user.component';
-import { UsersComponent } from './components/users/users.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
 const routes: Routes = [
   {
     path: '',
-    // component: UsersComponent,
     loadChildren: () =>
-      import('../app/components/users/users.module').then((m) => m.UsersModule),
+      import('./pages/users-main/users.module').then((m) => m.UsersModule),
   },
-  { path: ':user', component: UserComponent },
+  {
+    path: ':user',
+    loadChildren: () =>
+      import('./pages/user-main/user.module').then((m) => m.UserModule),
+  },
+
+  { path: '**', component: ErrorPageComponent },
 ];
 
 @NgModule({

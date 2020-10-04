@@ -1,4 +1,4 @@
-export interface IUser {
+export interface IUserResponse {
   login: string;
   id: number;
   node_id: string;
@@ -19,9 +19,9 @@ export interface IUser {
   site_admin: boolean;
 }
 
-export interface IUserShort {
+export interface IUser {
   userName: string;
   type: string;
   avatar_Url: string;
-  repos_Url: string;
+  repos: any[];
 }

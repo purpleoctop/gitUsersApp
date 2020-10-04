@@ -1,0 +1,61 @@
+<!-- <button (click)="scroll(target)"></button>
+<span
+  >Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+  when an unknown printer took a galley of type and scrambled it to make a type
+  specimen book. It has survived not only five centuries, but also the leap into
+  electronic typesetting, remaining essentially unchanged. It was popularised in
+  the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+  and more recently with desktop publishing software like Aldus PageMaker
+  including versions of Lorem Ipsum. Why do we use it? It is a long established
+  fact that a reader will be distracted by the readable content of a page when
+  looking at its layout. The point of using Lorem Ipsum is that it has a
+  more-or-less normal distribution of letters, as opposed to using 'Content
+  here, content here', making it look like readable English. Many desktop
+  publishing packages and web page editors now use Lorem Ipsum as their default
+  model text, and a search for 'lorem ipsum' will uncover many web sites still
+  in their infancy. Various versions have evolved over the years, sometimes by
+  accident, sometimes on purpose (injected humour and the like).
+</span>
+<div #target>Your target</div> -->
+<div class="container">
+  <div class="header">
+    <h2>The most popular users on Github</h2>
+    <div class="views">
+      <mat-icon (click)="changeView('list')">view_list</mat-icon>
+      <mat-icon (click)="changeView('grid')">view_module</mat-icon>
+    </div>
+  </div>
+  <hr />
+  <div
+    class="view"
+    [ngClass]="{ __grid: mode === 'grid', __list: mode === 'list' }"
+  >
+    <div
+      class="user"
+      [ngClass]="{ __grid: mode === 'grid', __list: mode === 'list' }"
+      *ngFor="let user of users"
+      routerLink="/{{ user.userName }}"
+    >
+      <img src="{{ user.avatar_Url }}" alt="avatar" />
+      <div class="user__info">
+        <h3>{{ user.userName }}</h3>
+        <p>{{ user.type }}</p>
+      </div>
+      <div class="user__repos">
+        <h5>user repos</h5>
+        <div *ngIf="user.repos.length !== 0; else elseBlock">
+          <div *ngFor="let repo of user.repos">
+            <a
+              class="repo"
+              href="{{ repo?.html_url }}"
+              title="{{ repo?.description }}"
+              >{{ repo?.name }}</a
+            >
+          </div>
+        </div>
+        <ng-template #elseBlock>no repos to display</ng-template>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+@import "../../../assets/palette.scss";
+
+.container {
+  width: 80%;
+  margin: auto;
+  .header {
+    display: flex;
+    justify-content: space-between;
+
+    .views {
+      align-self: flex-end;
+      .mat-icon {
+        margin-left: 10px;
+        color: $font;
+        cursor: pointer;
+        &:hover {
+          color: $hover-icon;
+        }
+      }
+    }
+  }
+
+  .view {
+    display: flex;
+    align-items: center;
+    &.__grid {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    &.__list {
+      flex-direction: column;
+    }
+    .user {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      border: 3px inset $border;
+      border-radius: 10px;
+      padding: 10px;
+      cursor: pointer;
+      &.__grid {
+        width: 300px;
+        height: 300px;
+        flex-direction: column;
+        justify-content: space-evenly;
+      }
+      &.__list {
+        width: 600px;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      &:hover {
+        background-color: $hover-background;
+      }
+      img {
+        height: 100px;
+        width: 100px;
+      }
+      &__info {
+        width: 100px;
+      }
+      &__repos {
+        width: 200px;
+        align-self: flex-start;
+        a {
+          width: 100%;
+          display: block;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}

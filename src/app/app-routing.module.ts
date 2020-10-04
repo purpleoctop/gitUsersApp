@@ -4,7 +4,12 @@ import { UserComponent } from './components/user/user.component';
 import { UsersComponent } from './components/users/users.component';
 
 const routes: Routes = [
-  { path: '', component: UsersComponent },
+  {
+    path: '',
+    // component: UsersComponent,
+    loadChildren: () =>
+      import('../app/components/users/users.module').then((m) => m.UsersModule),
+  },
   { path: ':user', component: UserComponent },
 ];
 

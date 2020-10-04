@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IUser, IUserShort } from '../models/IUser';
-import { IUserDetails } from '../models/IUserDetails';
+import { IUser, IUserResponse, } from '../models/IUser';
 import { map } from 'rxjs/operators';
-import { identifierModuleUrl } from '@angular/compiler';
-import { logging } from 'protractor';
+
 
 @Injectable({
   providedIn: 'root',
@@ -16,9 +14,9 @@ export class UsersService {
 
   getUsers() {
     const requestUrl = this.apiUrl;
-    return this.http.get<Array<IUser>>(requestUrl).pipe(
-      map((users: IUser[]) => {
-        const userTransformed = users.map((user: IUser) => {
+    return this.http.get<Array<IUserResponse>>(requestUrl).pipe(
+      map((users: IUserResponse[]) => {
+        const userTransformed = users.map((user: IUserResponse) => {
           const { login, avatar_url, type } = user;
           const transformed = {
             userName: login,

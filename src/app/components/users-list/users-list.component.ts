@@ -1,9 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IUser } from 'src/app/models/IUser';
-import { UsersService } from 'src/app/services/users.service';
-import { map, mergeMap } from 'rxjs/operators';
-import { forkJoin } from 'rxjs';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users-list',
@@ -12,16 +8,12 @@ import { Router } from '@angular/router';
 })
 export class UsersListComponent implements OnInit {
   @Input() users: IUser[];
-  mode = 'list';
-  constructor(private usersService: UsersService, private router: Router) {}
+  mode = '__list';
+  constructor() {}
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
-  
   changeView(mode) {
     this.mode = mode;
   }
- 
 }

@@ -5,17 +5,18 @@ h1,
 h2,
 h3 {
   margin: 10px 0px;
-  color: $font;
+  color: $primary-text;
 }
 
+h4,
 h5,
 p {
   margin: 5px 0px;
-  color: $font;
+  color: $primary-text;
 }
 
 a {
-  color: $font;
+  color: $primary-text;
 }
 html,
 body {

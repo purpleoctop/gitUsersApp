@@ -1,0 +1,71 @@
+@import "../../../assets/palette.scss";
+
+.container {
+  width: 700px;
+  height: 600px;
+  padding: 20px;
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    section {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .avatar {
+        img {
+          width: 200px;
+          height: 200px;
+        }
+      }
+      .repos {
+        width: 450px;
+        align-self: flex-end;
+        .list {
+          height: 100px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+      }
+      .orgs {
+        width: 100%;
+        .list {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+
+          .org {
+            position: relative;
+            margin-left: 10px;
+            img {
+              width: 100px;
+              height: 100px;
+            }
+            .name {
+              position: absolute;
+              visibility: hidden;
+              font-weight: bolder;
+              color: $white;
+              top: 30px;
+              left: 10px;
+              width: 100%;
+              background: $green-bg;
+              font-size: 20px;
+              opacity: 0;
+              text-decoration: none;
+            }
+            &:hover .name {
+              visibility: visible;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}

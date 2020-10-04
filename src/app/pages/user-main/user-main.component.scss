@@ -1,0 +1,35 @@
+@import "../../../assets/palette.scss";
+
+.container {
+  height: 100%;
+  width: 100%;
+  background-image: url("../../../assets/images/bg-02.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  .user {
+    position: absolute;
+  }
+  .back {
+    position: relative;
+    left: 90%;
+    top: 50%;
+    width: 50px;
+
+    img {
+      height: 40px;
+      width: 40px;
+    }
+
+    p {
+      color: $white;
+      font-size: 20px;
+      font-weight: 500;
+      cursor: pointer;
+
+      &:focus {
+        outline: 0;
+      }
+    }
+  }
+}

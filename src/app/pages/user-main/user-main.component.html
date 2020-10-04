@@ -1,1 +1,12 @@
-<app-user-details></app-user-details>
+<div class="container">
+  <div class="user">
+    <app-user-details [user]="fullUser"></app-user-details>
+  </div>
+
+  <div class="back">
+    <div class="animate__animated animate__bounce animate__infinite">
+    <img  src="../../../assets/images/icon.png" alt="" />
+  </div>
+    <p routerLink="../">back</p>
+  </div>
+</div>

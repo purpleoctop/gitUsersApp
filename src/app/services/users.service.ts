@@ -35,8 +35,13 @@ export class UsersService {
     return this.http.get<IUserDetails>(requestUrl);
   }
 
-  getUserRepos(userName): Observable<any> {
+  getUserRepos(userName: string) {
     const requestUrl = this.apiUrl + `/${userName}/repos`;
+    return this.http.get<any>(requestUrl);
+  }
+
+  getOrgs(userName: string) {
+    const requestUrl = this.apiUrl + `/${userName}/orgs`;
     return this.http.get<any>(requestUrl);
   }
 }

@@ -8,14 +8,23 @@
       <input
         type="text"
         formControlName="userName"
-        placeholder="search Github user here"
+        placeholder="    search Github user here"
       />
       <button type="submit">search</button>
     </form>
+    <div *ngFor="let item of searchItems">{{ item }}</div>
   </div>
   <div class="scroll">
-    <mat-icon (click)="scroll(target)">arrow_circle_down </mat-icon>
+    <mat-icon
+      *ngIf="loaded; else elseBlock"
+      class="animate__animated animate__bounce animate__infinite"
+      (click)="scroll(target)"
+      >arrow_circle_down
+    </mat-icon>
+    <ng-template #elseBlock>
+      <p class="animate__animated animate__flipInX animate__infinite">loading</p>
+    </ng-template>
   </div>
 </div>
 
-<div #target ><app-users-list [users]="users"></app-users-list></div>
+<div #target><app-users-list [users]="users"></app-users-list></div>

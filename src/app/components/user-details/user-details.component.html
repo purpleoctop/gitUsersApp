@@ -1,1 +1,44 @@
-<p>user works!</p>
+<div class="container" *ngIf="user">
+  <h2>{{ user.info.login }}</h2>
+  <hr />
+  <div class="details">
+    <section>
+      <div class="avatar">
+        <img src="{{ user.info.avatar_url }}" alt="avatar" />
+      </div>
+      <div class="repos">
+        <h5>user repos</h5>
+        <hr />
+        <div class="list">
+          <div *ngIf="user.repos.length !== 0; else noRepos">
+            <div *ngFor="let repo of user.repos">
+              <a href="{{ repo.url }}">{{ repo.name }}</a>
+            </div>
+          </div>
+          <ng-template #noRepos>
+            <p>no repositories to display</p>
+          </ng-template>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="orgs">
+        <h5>user organisations</h5>
+        <hr />
+        <div *ngIf="user.orgs.length !== 0; else noOrgs">
+          <div class="list">
+            <div *ngFor="let org of user.orgs">
+              <div class="org">
+                <img src="{{ org.avatar_url }}" alt="organisation avatar" />
+                <a class="name" href="{{ org.url }}">{{ org.login }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ng-template #noOrgs>
+          <p>no organisations to display</p>
+        </ng-template>
+      </div>
+    </section>
+  </div>
+</div>

@@ -15,7 +15,6 @@ import { UsersService } from './services/users.service';
 
 import { MatIconModule } from '@angular/material/icon';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
-import { SearchService } from './services/search.service';
 
 import { HTTPInterceptor } from './interceptors/httpInterceptor';
 
@@ -33,7 +32,6 @@ import { HTTPInterceptor } from './interceptors/httpInterceptor';
   ],
   providers: [
     UsersService,
-    SearchService,
     { provide: HTTP_INTERCEPTORS, useClass: HTTPInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],

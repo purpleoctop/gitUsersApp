@@ -30,7 +30,7 @@
             <div *ngFor="let org of user.orgs">
               <div class="org">
                 <img src="{{ org.avatar_url }}" alt="organisation avatar" />
-                <a class="name" href="{{ org.url }}">{{ org.login }}</a>
+                <a class="name" href="{{org.html_url}}">{{ org.login }}</a>
               </div>
             </div>
           </div>

@@ -13,7 +13,7 @@ export class UsersListComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  changeView(mode) {
+  changeView(mode): void {
     this.mode = mode;
   }
 }

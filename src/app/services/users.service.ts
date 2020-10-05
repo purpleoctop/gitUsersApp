@@ -12,7 +12,7 @@ export class UsersService {
   apiUrl = 'https://api.github.com/users';
   constructor(private http: HttpClient) {}
 
-  getUsers() {
+  getUsers(): Observable<any> {
     const requestUrl = this.apiUrl;
     return this.http.get<Array<IUserResponse>>(requestUrl).pipe(
       map((users: IUserResponse[]) => {
@@ -21,7 +21,7 @@ export class UsersService {
           const transformed = {
             userName: login,
             avatar_Url: avatar_url,
-            type: type,
+            type
           };
           return transformed;
         });
@@ -30,17 +30,17 @@ export class UsersService {
     );
   }
 
-  getUser(userName: string) {
+  getUser(userName: string): Observable<IUserDetails> {
     const requestUrl = this.apiUrl + `/${userName}`;
     return this.http.get<IUserDetails>(requestUrl);
   }
 
-  getUserRepos(userName: string) {
+  getUserRepos(userName: string): Observable<any> {
     const requestUrl = this.apiUrl + `/${userName}/repos`;
     return this.http.get<any>(requestUrl);
   }
 
-  getOrgs(userName: string) {
+  getOrgs(userName: string): Observable<any> {
     const requestUrl = this.apiUrl + `/${userName}/orgs`;
     return this.http.get<any>(requestUrl);
   }

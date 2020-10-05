@@ -13,7 +13,7 @@ export class HTTPInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const user = 'purpleoctop'
+    const user = 'purpleoctop';
     request = request.clone({
       headers: request.headers.set('Authorization', `Basic ${user}` ),
     });

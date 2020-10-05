@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { forkJoin } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 import { IUser } from 'src/app/models/IUser';
 import { UsersService } from 'src/app/services/users.service';
@@ -22,7 +22,7 @@ export class UsersMainComponent implements OnInit {
     private usersService: UsersService,
     private router: Router
   ) {
-    let items = localStorage.getItem('items');
+    const items = localStorage.getItem('items');
     this.searchItems = JSON.parse(items) || [];
   }
 
@@ -34,17 +34,17 @@ export class UsersMainComponent implements OnInit {
     });
   }
 
-  search(userName) {
+  search(userName): void {
     this.usersService.getUser(userName).subscribe(
       (res) => this.router.navigate([`/${res.login}`]),
       (err) => {
-        // window.alert('user not found');
+        window.alert('user not found, Please try again');
       }
     );
     this.saveSearch(userName);
   }
 
-  saveSearch(item) {
+  saveSearch(item): void{
     if (this.searchItems.length >= 3) {
       {
         this.searchItems.reverse().pop();
@@ -55,7 +55,7 @@ export class UsersMainComponent implements OnInit {
     localStorage.setItem('items', JSON.stringify(this.searchItems));
   }
 
-  getfullUsers() {
+  getfullUsers(): void{
     this.getUsers()
       .pipe(
         mergeMap((users) => {
@@ -76,15 +76,15 @@ export class UsersMainComponent implements OnInit {
         });
       });
   }
-  getUsers() {
+  getUsers(): Observable<any>{
     return this.usersService.getUsers();
   }
 
-  getRepos(userName) {
+  getRepos(userName): Observable<any> {
     return this.usersService.getUserRepos(userName);
   }
 
-  scroll(el: HTMLElement) {
+  scroll(el: HTMLElement): void {
     el.scrollIntoView();
   }
 }
